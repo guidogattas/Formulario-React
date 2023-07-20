@@ -32,8 +32,8 @@ function App() {
   const orderTodos = (arrayTodos) => {
     return arrayTodos.sort((a, b) => {
       if (a.priority === b.priority) return 0;
-      if (a.priority === true) return -1;
-      if (a.priority === false) return 1;
+      if (a.priority) return -1;
+      if (!a.priority) return 1;
     });
   };
 

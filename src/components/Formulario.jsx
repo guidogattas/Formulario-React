@@ -25,7 +25,7 @@ const Formulario = ({addTodo}) => {
     addTodo({
       id: Date.now(),
       ...todo,
-      state: state === 'Completado',
+      state: state === 'completado',
     })
     Swal.fire({
       position: 'center',
