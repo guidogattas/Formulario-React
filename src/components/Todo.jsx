@@ -18,14 +18,25 @@ const Todo = ({ todo, deleteTodo, updateTodo }) => {
             >
               Eliminar
             </button>
-            <button
-              onClick={() => {
-                updateTodo(id);
-              }}
-              className="btn btn-sm btn-warning"
-            >
-              Actualizar
-            </button>
+            {state ? (
+              <button
+                onClick={() => {
+                  updateTodo(id);
+                }}
+                className="btn btn-sm btn-warning"
+              >
+                Pendiente
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  updateTodo(id);
+                }}
+                className="btn btn-sm btn-success"
+              >
+                Completado
+              </button>
+            )}
           </div>
         </div>
         <span className="badge text-bg-primary">

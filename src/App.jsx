@@ -12,7 +12,7 @@ function App() {
   }, [todos])
 
   const addTodo = (todo) => {
-    setTodos([...todos, todo]);
+    setTodos([todo, ...todos ]);
     setTodos;
   };
 
@@ -20,6 +20,7 @@ function App() {
     const newArray = todos.filter((todo) => todo.id !== id);
     setTodos(newArray);
   };
+  
 
   const updateTodo = (id) => {
     const newArray = todos.map((todo) => {
@@ -31,9 +32,13 @@ function App() {
 
   const orderTodos = (arrayTodos) => {
     return arrayTodos.sort((a, b) => {
-      if (a.priority === b.priority) return 0;
-      if (a.priority) return -1;
-      if (!a.priority) return 1;
+      if (a.state === b.state) {
+        if (a.priority === b.priority) return 0;
+        if (a.priority) return -1;
+        if (!a.priority) return 1;
+      } else {
+        return a.state ? 1 : -1;
+      }
     });
   };
 

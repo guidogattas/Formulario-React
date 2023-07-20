@@ -3,8 +3,8 @@ import Swal from "sweetalert2";
 
 const Formulario = ({addTodo}) => {
   const [todo, setTodo] = useState({
-    title: "Todo #01",
-    description: "Descripción #01",
+    title: "",
+    description: "",
     state: "pendiente",
     priority: true,
   });
@@ -19,7 +19,6 @@ const Formulario = ({addTodo}) => {
         icon: "error",
         title: "Oops...",
         text: "Título y descripción obligatorios",
-        footer: '<a href="">Why do I have this issue?</a>',
       });
     }
     addTodo({
