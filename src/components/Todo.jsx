@@ -1,16 +1,36 @@
-const Todo = ({ todo }) => {
+const Todo = ({ todo, deleteTodo, updateTodo }) => {
   const { id, title, description, state, priority } = todo;
 
   return (
     <li key={id} className="list-group-item">
-      <div>
-        <h5>{title}</h5>
-        <p>{description}</p>
-        <div className="d-flex gap-2">
-          <button className="btn btn-sm btn-danger">Eliminar</button>
-          <button className="btn btn-sm btn-warning">Actualizar</button>
+      <div className="d-flex justify-content-between align-items-start p-3 mb-2 bg-secondary bg-gradient text-white rounded-5">
+        <div>
+          <h5 className={`${state && "text-decoration-line-through"}`}>
+            {title}
+          </h5>
+          <p className={`${state && "text-decoration-line-through"}`}>
+            {description}
+          </p>
+          <div className="d-flex gap-2">
+            <button
+              onClick={() => deleteTodo(id)}
+              className="btn btn-sm btn-danger"
+            >
+              Eliminar
+            </button>
+            <button
+              onClick={() => {
+                updateTodo(id);
+              }}
+              className="btn btn-sm btn-warning"
+            >
+              Actualizar
+            </button>
+          </div>
         </div>
-        <span className="badge text-bg-primary">{priority && "Prioritario"}</span>
+        <span className="badge text-bg-primary">
+          {priority && "Prioritario"}
+        </span>
       </div>
     </li>
   );
